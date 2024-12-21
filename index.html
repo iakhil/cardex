@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarDex - Identify Cars</title>
+    <link rel="stylesheet" href="frontend/styles.css">
+</head>
+<body>
+    <header>
+        <h1>CarDex</h1>
+        <p>Upload an image to identify the car and get details!</p>
+    </header>
+    <main>
+        <form id="upload-form">
+            <label for="image-upload">Choose an image:</label>
+            <input type="file" id="image-upload" accept="image/*">
+            <button type="button" id="upload-button">Upload</button>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Result</h2>
+            <p><strong>Uploaded Image:</strong></p>
+            <img id="uploaded-image" alt="Uploaded car" />
+            <p><strong>Description:</strong> <span id="description"></span></p>
+        </div>
+    </main>
+    <footer>
+        <p>Built with ❤️ for car enthusiasts.</p>
+    </footer>
+    <script src="frontend/script.js"></script>
+</body>
+</html>
