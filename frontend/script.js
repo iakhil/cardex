@@ -15,10 +15,11 @@ uploadButton.addEventListener("click", async () => {
     formData.append("image", file);
 
     try {
-        const response = await fetch("https://cardex.onrender.com/upload", { // Use localhost for testing
+        const response = await fetch("https://cardex.onrender.com/upload", { 
             method: "POST",
             body: formData,
         });
+
         const data = await response.json();
 
         if (data.error) {
@@ -26,9 +27,9 @@ uploadButton.addEventListener("click", async () => {
             return;
         }
 
-        // Display results verbatim
-        apiResponse.textContent = data.description;
-        uploadedImage.src = data.url;
+        // Display results
+        uploadedImage.src = data.url; // Cloudinary URL for the uploaded image
+        apiResponse.textContent = data.description; 
         resultSection.classList.remove("hidden");
     } catch (error) {
         console.error("Error:", error);
