@@ -15,7 +15,7 @@ uploadButton.addEventListener("click", async () => {
     formData.append("image", file);
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/upload", { // Use localhost for testing
+        const response = await fetch("https://cardex.onrender.com/upload", { // Use localhost for testing
             method: "POST",
             body: formData,
         });
