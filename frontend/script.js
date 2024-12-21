@@ -2,7 +2,7 @@ const uploadButton = document.getElementById("upload-button");
 const imageUpload = document.getElementById("image-upload");
 const resultSection = document.getElementById("result");
 const uploadedImage = document.getElementById("uploaded-image");
-const description = document.getElementById("description");
+const apiResponse = document.getElementById("api-response");
 
 uploadButton.addEventListener("click", async () => {
     const file = imageUpload.files[0];
@@ -15,7 +15,7 @@ uploadButton.addEventListener("click", async () => {
     formData.append("image", file);
 
     try {
-        const response = await fetch("https://your-backend.onrender.com/upload", {
+        const response = await fetch("http://127.0.0.1:5000/upload", { // Use localhost for testing
             method: "POST",
             body: formData,
         });
@@ -26,9 +26,9 @@ uploadButton.addEventListener("click", async () => {
             return;
         }
 
-        // Display results
+        // Display results verbatim
+        apiResponse.textContent = data.description;
         uploadedImage.src = data.url;
-        description.textContent = data.description;
         resultSection.classList.remove("hidden");
     } catch (error) {
         console.error("Error:", error);
